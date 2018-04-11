@@ -1,0 +1,7 @@
+﻿@model IEnumerable<NGKShop.Models.LOAINGK>
+@foreach (var item in Model)
+{
+    <li><a href="@Url.Action("SPTheoLNGK","HomePage", new { id= item.MaLH})">
+        @item.TenLH
+    </a></li>
+}

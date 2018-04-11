@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NGK" Class="NGKDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-MGTNB44\SQLEXPRESS;Initial Catalog=NGK;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="NGKConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Admin" Member="Admins">
+    <Type Name="Admin">
+      <Column Name="UserAdmin" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PassAdmin" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Hoten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CHITIETHD" Member="CHITIETHDs">
+    <Type Name="CHITIETHD">
+      <Column Name="MaHD" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MaMH" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DonGia" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="SL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="HOADON_CHITIETHD" Member="HOADON" ThisKey="MaHD" OtherKey="MaHD" Type="HOADON" IsForeignKey="true" />
+      <Association Name="MATHANG_CHITIETHD" Member="MATHANG" ThisKey="MaMH" OtherKey="MaMH" Type="MATHANG" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HOADON" Member="HOADONs">
+    <Type Name="HOADON">
+      <Column Name="MaHD" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NGAYLAPHD" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TONGTIEN" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="MaKH" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Dathanhtoan" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="HOADON_CHITIETHD" Member="CHITIETHDs" ThisKey="MaHD" OtherKey="MaHD" Type="CHITIETHD" />
+      <Association Name="KHACHHANG_HOADON" Member="KHACHHANG" ThisKey="MaKH" OtherKey="MaKH" Type="KHACHHANG" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KHACHHANG" Member="KHACHHANGs">
+    <Type Name="KHACHHANG">
+      <Column Name="MaKH" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenKH" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="SDT" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TenDN" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MatKhau" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="KHACHHANG_HOADON" Member="HOADONs" ThisKey="MaKH" OtherKey="MaKH" Type="HOADON" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LOAINGK" Member="LOAINGKs">
+    <Type Name="LOAINGK">
+      <Column Name="MaLH" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenLH" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="MaNCC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HinhLOGO" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Association Name="LOAINGK_MATHANG" Member="MATHANGs" ThisKey="MaLH" OtherKey="MaLH" Type="MATHANG" />
+      <Association Name="NCC_LOAINGK" Member="NCC" ThisKey="MaNCC" OtherKey="MaNCC" Type="NCC" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MATHANG" Member="MATHANGs">
+    <Type Name="MATHANG">
+      <Column Name="MaMH" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MaLH" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenMH" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="DonViTinh" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="MoTa" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="GiaBan" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="HinhSP" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Association Name="MATHANG_CHITIETHD" Member="CHITIETHDs" ThisKey="MaMH" OtherKey="MaMH" Type="CHITIETHD" />
+      <Association Name="LOAINGK_MATHANG" Member="LOAINGK" ThisKey="MaLH" OtherKey="MaLH" Type="LOAINGK" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NCC" Member="NCCs">
+    <Type Name="NCC">
+      <Column Name="MaNCC" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenNCC" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="NCC_LOAINGK" Member="LOAINGKs" ThisKey="MaNCC" OtherKey="MaNCC" Type="LOAINGK" />
+    </Type>
+  </Table>
+</Database>
