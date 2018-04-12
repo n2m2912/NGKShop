@@ -79,4 +79,3 @@ C:\Users\n2m\Desktop\NGKShop\NGKShop\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\n2m\Desktop\NGKShop\NGKShop\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\n2m\Desktop\NGKShop\NGKShop\obj\Debug\NGKShop.dll
 C:\Users\n2m\Desktop\NGKShop\NGKShop\obj\Debug\NGKShop.pdb
-C:\Users\n2m\Desktop\NGKShop\NGKShop\obj\Debug\NGKShop.csprojResolveAssemblyReference.cache

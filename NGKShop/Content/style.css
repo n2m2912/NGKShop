@@ -549,6 +549,7 @@ ul.dropdown-menu.drp-mnu li a i {
 .product_list_header {
     float: left;
     margin-left: 7em;
+    padding-top: 12px;
 }
 .snipcart-details {
     text-align: center;
@@ -558,7 +559,7 @@ ul.dropdown-menu.drp-mnu li a i {
 .btn-danger.my-cart-btn:focus {
     outline: none;
 }
-.snipcart-details input.button {
+.snipcart-details a.button {
     font-size: 14px;
     color: #fff;
     background: #FA1818;
@@ -571,10 +572,10 @@ ul.dropdown-menu.drp-mnu li a i {
     padding: .5em 0;
     outline: none;
 }
-.agile_top_brand_left_grid:hover .snipcart-details input.button,.snipcart-details input.button:hover{
+.agile_top_brand_left_grid:hover .snipcart-details a.button,.snipcart-details a.button:hover{
     background: #84C639;
 }
-.product_list_header input.button {
+.product_list_header a.button {
     color: #fff;
     font-size: 14px;
     outline: none;
@@ -582,7 +583,7 @@ ul.dropdown-menu.drp-mnu li a i {
     padding: .5em 2.5em .5em 1em;
     border: 1px solid #84c639;
     margin: .35em 0 0;
-    background: url('images/cart.png') no-repeat 116px 9px;
+    background: url('images/cart.png') no-repeat 84px 7px;
 }
 #PPMiniCart form {
     width: 590px !important;
@@ -2409,7 +2410,7 @@ ul.wmuSliderPagination {
 }
 .agileinfo_single_right_details {
     margin: 0 !important;
-    width: 25% !important;
+    width: 29% !important;
 }
 .w3agile_description h4{
 	font-size:1em;
@@ -2922,6 +2923,7 @@ input.checkbox:checked:after {
 	}
 	.product_list_header {
 		margin-left: 3em;
+        
 	}
 	.wthree_banner_btm_pos h3 span {
 		padding-left: 5em;
@@ -2954,10 +2956,10 @@ input.checkbox:checked:after {
 		padding-left: 3em;
 	}
 	.agileinfo_single_right_details {
-		width: 33% !important;
+		width: 44% !important;
 	}
 	.snipcart-details {
-		width: 88%;
+		width: 89%;
 	}
 	.typo, .privacy, .faq, .services, .events, .mail, .agileinfo_single, .w3_login {
 		padding: 5em 3em;
@@ -2997,7 +2999,7 @@ input.checkbox:checked:after {
 	#PPMiniCart {
 		left: 42% !important;
 	}
-	.snipcart-details input.button {
+	.snipcart-details a.button {
 		font-size: 13px;
 	}
 	.w3l_banner_nav_right_banner3_btml h4 {
@@ -3077,7 +3079,7 @@ input.checkbox:checked:after {
 		font-size:13px;
 	}
 	.snipcart-details {
-		width: 80%;
+		width: 101%;
 	}
 	.w3agile_newsletter_right {
 		width: 60%;
@@ -3239,7 +3241,7 @@ input.checkbox:checked:after {
 		margin: 0 auto;
 	}
 	.snipcart-details {
-		width: 70%;
+		width: 73%;
 	}
 	.agile_top_brand_left_grid1 p {
 		font-size: 14px;
@@ -3451,7 +3453,7 @@ input.checkbox:checked:after {
 	.w3l_panel_group_faq {
 		margin: 1em 0 0;
 	}
-	.snipcart-details input.button {
+	.snipcart-details a.button {
 		font-size: 14px;
 	}
 	.checkout-left-basket {
@@ -3594,6 +3596,7 @@ input.checkbox:checked:after {
 @media (max-width: 768px){
 	.product_list_header {
 		margin-left: 1em;
+        padding-top: 3px;
 	}
 	.w3l_header_right {
 		padding-left: 1.5em;
@@ -3932,7 +3935,7 @@ input.checkbox:checked:after {
 		margin-left: 24.5em;
 	}
 	.snipcart-details {
-		width: 80%;
+		width: 96%;
 	}
 	.agileinfo_marquee h4 {
 		font-size: 1.1em;
@@ -4227,10 +4230,10 @@ input.checkbox:checked:after {
 		width: 49.5%;
 		margin: 0;
 	}
-	.product_list_header input.button {
+	.product_list_header a.button {
 		margin: 0;
 		padding: .3em 2.5em .3em 1em;
-		background: url('images/cart.png') no-repeat 116px 5px;
+		background: url('images/cart.png') no-repeat 86px 5px;
 	}
 	#PPMiniCart form {
 		width: 400px !important;
@@ -4333,7 +4336,7 @@ input.checkbox:checked:after {
 		font-size: 1.2em;
 	}
 	.agileinfo_single_right_details {
-		width: 45% !important;
+		width: 52% !important;
 	}
 	.privacy2-grid1 {
 		padding: 0;
@@ -4448,6 +4451,7 @@ input.checkbox:checked:after {
 	}
 	.product_list_header {
 		margin-left: .3em;
+        padding-top: 5px;
 	}
 	.w3l_header_right {
 		padding-left: 3.5em;
@@ -4796,7 +4800,7 @@ input.checkbox:checked:after {
 		padding-left: 5px !important;
 		font-size: 13px !important;
 	}
-	.snipcart-details input.button {
+	.snipcart-details a.button {
 		font-size: 13px;
 	}
 	.w3ls_w3l_banner_nav_right_grid1 h6 {
@@ -4813,9 +4817,9 @@ input.checkbox:checked:after {
 	.form-module {
 		margin: 2em auto 0;
 	}
-	.product_list_header input.button {
+	.product_list_header a.button {
 		padding: .3em 2.5em .3em 0.8em;
-		background: url('images/cart.png') no-repeat 105px 5px;
+		background: url('images/cart.png') no-repeat 75px 3px;
 		font-size: 13px;
 	}
 }
