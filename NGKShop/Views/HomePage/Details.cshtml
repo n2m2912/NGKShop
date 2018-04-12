@@ -35,20 +35,9 @@
             <h4>@Model.GiaBan <span>$25.00</span></h4>
         </div>
         <div class="snipcart-details agileinfo_single_right_details">
-            <form action="#" method="post">
-                <fieldset>
-                    <input type="hidden" name="cmd" value="_cart" />
-                    <input type="hidden" name="add" value="@Model.MaMH" />
-                    <input type="hidden" name="business" value=" " />
-                    <input type="hidden" name="item_name" value="@Model.TenMH" />
-                    <input type="hidden" name="amount" value="@Model.GiaBan" />
-                    <input type="hidden" name="discount_amount" value="1.00" />
-                    <input type="hidden" name="currency_code" value="VND" />
-                    <input type="hidden" name="return" value=" " />
-                    <input type="hidden" name="cancel_return" value=" " />
-                    <input type="submit" name="submit" value="Add to cart" class="button" />
-                </fieldset>
-            </form>
+            <a href="@Url.Action("ThemGiohang","GioHang", new { @iMaMH = @Model.MaMH, @strURL = Request.Url.ToString() })">
+                Gio hang
+            </a>
         </div>
     </div>
 </div>

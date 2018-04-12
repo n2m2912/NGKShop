@@ -1,0 +1,50 @@
+﻿@using NGKShop.Models
+@model List<Giohang>
+
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_LayoutCheckOut.cshtml";
+}
+
+<h4>Your shopping cart contains: <span>@ViewBag.Tongsoluong Sản phẩm</span></h4>
+<table class="timetable_sub">
+    <thead>
+        <tr>
+            <th>Mã hàng</th>
+            <th>Hình ảnh</th>
+            <th>Số lượng</th>
+            <th>Tên sản phẩm</th>
+
+            <th>Giá</th>
+            <th>Remove</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+         <tbody>
+            <tr class="rem1">
+                <td class="invert">@item.iMaMH</td>
+                <td class="invert-image"><a href="single.html"><img src="~/Content/Hinhsp/@item.sHinhSP" alt=" " class="img-responsive"></a></td>
+                <td class="invert">
+                    <div class="quantity">
+                        <div class="quantity-select">
+                            <div class="entry value-minus">&nbsp;</div>
+                            <div class="entry value"><span>@item.iSoluong</span></div>
+                            <div class="entry value-plus active">&nbsp;</div>
+                        </div>
+                    </div>
+                </td>
+                <td class="invert">@item.sTenMH</td>
+
+                <td class="invert">@item.dDonGia</td>
+                <td class="invert">
+                    <div class="rem">
+                        <div class="close1"> </div>
+                    </div>
+
+                </td>
+            </tr> 
+        </tbody>
+    }
+</table>
+
