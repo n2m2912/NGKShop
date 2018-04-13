@@ -40,7 +40,7 @@ namespace NGKShop.Controllers
                 kh.SDT = dienthoai;
                 data.KHACHHANGs.InsertOnSubmit(kh);
                 data.SubmitChanges();
-                return RedirectToAction("Index","HomePage");
+                return RedirectToAction("GioHang","GioHang");
 
             return this.DangKy();
         }
@@ -59,7 +59,7 @@ namespace NGKShop.Controllers
                 {
                     /*ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";*/
                     Session["Taikhoan"] = kh;
-                    return RedirectToAction("Index", "HomePage");
+                    return RedirectToAction("GioHang", "GioHang");
                 }
                 else
                     ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";

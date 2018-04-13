@@ -1,4 +1,9 @@
-﻿<!--
+﻿
+@{
+    Layout = null;
+}
+
+<!--
 author: W3layouts
 author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -25,7 +30,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- js -->
     <script src="~/Scripts/jquery-1.11.1.min.js"></script>
     <!-- //js -->
-    <link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
     <!-- start-smoth-scrolling -->
     <script type="text/javascript" src="~/Scripts/move-top.js"></script>
@@ -45,6 +49,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             width: 100%;
         }
     </style>
+
 </head>
 
 <body>
@@ -105,14 +110,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h1><a href="@Url.Action("Index","HomePage")"><span>NGK</span> Shop</a></h1>
             </div>
             <div class="w3ls_logo_products_left1">
-                <ul class="special_items">
-                    <li><a href="events.html">Sự kiện</a><i>/</i></li>
-                    <li><a href="about.html">Về chúng tôi</a><i>/</i></li>
-                    <li><a href="products.html">Giá tốt</a><i>/</i></li>
-                    <li><a href="services.html">Dịch vụ</a></li>
-                </ul>
-            </div>
-            <div class="w3ls_logo_products_left1">
                 <ul class="phone_email">
                     <li><i class="fa fa-phone" aria-hidden="true"></i>(+84) 1232 496568</li>
                     <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:store@grocery.com">store@grocery.com</a></li>
@@ -126,8 +123,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="products-breadcrumb">
         <div class="container">
             <ul>
-                <li><i class="fa fa-home" aria-hidden="true"></i><a href="index.html">Home</a><span>|</span></li>
-                <li>Bread & Bakery</li>
+                <li><i class="fa fa-home" aria-hidden="true"></i><a href="@Url.Action("Index","HomePage")">Trang chủ</a><span>|</span></li>
+                <li>Phương thức thanh toán</li>
             </ul>
         </div>
     </div>
@@ -148,37 +145,82 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                     <ul class="nav navbar-nav nav_1">
-                        @Html.Action("LoaiNGK", "HomePage")
+                       @Html.Action("LoaiNGK", "HomePage")
                     </ul>
-                </div><!-- /.navbar-collapse -->
+                </div>
+                <!-- /.navbar-collapse -->
             </nav>
         </div>
         <div class="w3l_banner_nav_right">
-            <div class="w3l_banner_nav_right_banner8">
-                <h3>Best Deals For New Products<span class="blink_me"></span></h3>
+            <!-- services -->
+            <div class="services">
+                <h3>Services</h3>
+                <div class="w3ls_service_grids">
+                    <div class="col-md-5 w3ls_service_grid_left">
+                        <h4>Hình thức thanh toán</h4>
+                        <p>
+                            Cửa hàng áp dụng hình thức thanh toán trực tuyến, thanh toán tiền mặt khi nhận hàng và thanh toán qua chuyển khoản ngân hàng. 
+                        </p>
+                    </div>
+                    <div class="col-md-7 w3ls_service_grid_right">
+                        <div class="col-md-4 w3ls_service_grid_right_1">
+                            <img src="~/Content/images/18.jpg" alt=" " class="img-responsive" />
+                        </div>
+                        <div class="col-md-4 w3ls_service_grid_right_1">
+                            <img src="~/Content/images/19.jpg" alt=" " class="img-responsive" />
+                        </div>
+                        <div class="col-md-4 w3ls_service_grid_right_1">
+                            <img src="~/Content/images/20.jpg" alt=" " class="img-responsive" />
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="w3ls_service_grids1">
+                    <div class="col-md-6 w3ls_service_grids1_left">
+                        <img src="~/Content/images/4.jpg" alt=" " class="img-responsive" />
+                    </div>
+                    <div class="col-md-6 w3ls_service_grids1_right">
+                        <ul>
+                            <li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Chuyển khoản:</li>
+                            <li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Agribank:Chi nhánh ....</li>
+                            <li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Số tài khoản: 000000000000</li>
+                            <li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Tên tài khoản: Nguyễn Văn A</li>
+                            <li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>VietinBank:Chi nhánh ......</li>
+                            <li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Số tài khoản: 000000000000</li>
+                            <li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Tên tài khoản: Nguyễn Văn A</li>
+                        </ul>
+                        <a href="@Url.Action("Index","HomePage")">Mua hàng</a>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
             </div>
-            
-                    @RenderBody()
-                
+            <!-- //services -->
         </div>
         <div class="clearfix"></div>
     </div>
     <!-- //banner -->
-    <!-- newsletter -->
-    <div class="newsletter">
+    <!-- services-bottom -->
+    
+    <!-- //services-bottom -->
+    <!-- newsletter-top-serv-btm -->
+    <div class="newsletter-top-serv-btm">
         <div class="container">
-            <div class="w3agile_newsletter_left">
-                <h3>sign up for our newsletter</h3>
-            </div>
-            <div class="w3agile_newsletter_right">
-                <form action="#" method="post">
-                    <input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-                    <input type="submit" value="subscribe now">
-                </form>
+            <div class="col-md-12 wthree_news_top_serv_btm_grid">
+                <div class="wthree_news_top_serv_btm_grid_icon">
+                    <i class="fa fa-truck" aria-hidden="true"></i>
+                </div>
+                <h3>Dịch vụ chuyển hàng</h3>
+                <p>
+                    Dưới 2km miễn phí . Trên 2km tính phí trên khối lượng hàng
+                </p>
             </div>
             <div class="clearfix"> </div>
         </div>
     </div>
+    <!-- //newsletter-top-serv-btm -->
+    <!-- newsletter -->
+    
     <!-- //newsletter -->
     <!-- footer -->
     <div class="footer">
@@ -186,48 +228,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-md-3 w3_footer_grid">
                 <h3>information</h3>
                 <ul class="w3_footer_grid_list">
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="products.html">Best Deals</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="short-codes.html">Short Codes</a></li>
+                    <li><a href="@Url.Action("About","DichVu")">Về chúng tôi</a></li>
+                    <li><a href="products.html">Hàng khuyến mãi</a></li>
+                    <li><a href="@Url.Action("Service","DichVu")">Phương thức thanh toán</a></li>
                 </ul>
             </div>
             <div class="col-md-3 w3_footer_grid">
                 <h3>policy info</h3>
                 <ul class="w3_footer_grid_list">
                     <li><a href="faqs.html">FAQ</a></li>
-                    <li><a href="privacy.html">privacy policy</a></li>
-                    <li><a href="privacy.html">terms of use</a></li>
+                    <li><a href="privacy.html">Chính sách</a></li>
                 </ul>
             </div>
             <div class="col-md-6 w3_footer_grid">
                 <div id="map"></div>
             </div>
+
             <div class="clearfix"> </div>
             <div class="agile_footer_grids">
                 <div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
                     <div class="w3_footer_grid_bottom">
-                        <h4>100% secure payments</h4>
+                        <h4>Hình thức thanh toán an toàn 100%</h4>
                         <img src="~/Content/images/card.png" alt=" " class="img-responsive" />
                     </div>
                 </div>
                 <div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
                     <div class="w3_footer_grid_bottom">
-                        <h5>connect with us</h5>
+                        <h5>Kết nối với chúng tôi</h5>
                         <ul class="agileits_social_icons">
-                            <li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#" class="google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                            <li><a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            <li><a href="#" class="dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.facebook.com" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.twitter.com" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="https://plus.google.com" class="google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="clearfix"> </div>
             </div>
             <div class="wthree_footer_copy">
-                <p>© 2016 Grocery Store. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+                <p>© 2018 NGKShop.</p>
             </div>
         </div>
     </div>
@@ -264,6 +302,7 @@ $(document).ready(function(){
 
 			});
     </script>
+    <!-- //here ends scrolling icon -->
     <!-- //here ends scrolling icon -->
     <script src="~/Scripts/minicart.js"></script>
     <script>

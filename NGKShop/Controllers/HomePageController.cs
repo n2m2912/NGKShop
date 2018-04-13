@@ -17,7 +17,7 @@ namespace NGKShop.Controllers
         }
         public ActionResult Index()
         {
-            var mathang = Laymathangngk(6);
+            var mathang = Laymathangngk(12);
             return View(mathang);
         }
         public ActionResult LoaiNGK()
@@ -37,6 +37,13 @@ namespace NGKShop.Controllers
             ViewBag.TenLH = loaihang.TenLH;
             return View(ngk);
         }
+        public ActionResult TimKiem(FormCollection collection)
+        {
+            string TenMH = collection["Product"].ToString();
+            var mathang = data.MATHANGs.Where(p => p.TenMH.Contains(TenMH));
+            return View(mathang);
+        }
+
        
     }
 }

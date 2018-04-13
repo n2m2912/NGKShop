@@ -1,0 +1,44 @@
+﻿@using NGKShop.Models
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_LayoutSPTheoLH.cshtml";
+}
+<h2 style="text-align:center">Thông tin đặt hàng</h2>
+@{
+    KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
+}
+<table align="center">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height40px">
+            <td> Họ tên khách hàng:</td>
+            <td style="font-weight:bold">@kh.TenKH</td>
+        </tr>
+        <tr style="height40px">
+            <td> Địa chỉ:</td>
+            <td style="font-weight:bold">@kh.DiaChi</td>
+        </tr>
+        <tr style="height40px">
+            <td> Điện thoại:</td>
+            <td style="font-weight:bold">@kh.SDT</td>
+        </tr>
+        <tr style="height40px">
+            <td> Ngày đặt:</td>
+            <td style="font-weight:bold">@DateTime.Now.ToShortDateString()</td>
+        </tr>
+        <tr style="height40px">
+            <td> Ngày giao hàng:</td>
+            <td style="font-weight:bold">
+                <input type="date" name="Ngaygiao" />
+                @ViewData["Loi1"]
+            </td>
+        </tr>
+        <tr style="height40px">
+            <td></td>
+            <td>
+                <input type="submit" value="Đồng ý đặt hàng" />
+            </td>
+        </tr>
+    }
+</table>

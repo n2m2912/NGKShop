@@ -55,7 +55,7 @@ go
 
 Create table [CHITIETHD]
 (
-	[MaHD] INT IDENTITY(1,1) NOT NULL,
+	[MaHD] INT  NOT NULL,
 	[MaMH] INT NOT NULL,
 	[DonGia] MONEY NOT NULL,
 	[SL] Integer NOT NULL,

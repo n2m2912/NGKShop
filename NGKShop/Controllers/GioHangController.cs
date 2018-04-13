@@ -119,7 +119,7 @@ namespace NGKShop.Controllers
             }
             if (Session["Giohang"] == null)
             {
-                return RedirectToAction("Index", "BookStore");
+                return RedirectToAction("Index", "HomePage");
             }
             List<Giohang> lstGiohang = Laygiohang();
             ViewBag.Tongsoluong = TongSoLuong();
@@ -142,6 +142,7 @@ namespace NGKShop.Controllers
             }
             else
             {
+                hd.TONGTIEN =(decimal)TongTien();
                 hd.Ngaygiaohang= DateTime.Parse(ngaygiao);
                 hd.Dathanhtoan = false;
                 data.HOADONs.InsertOnSubmit(hd);
@@ -151,8 +152,8 @@ namespace NGKShop.Controllers
                     CHITIETHD cthd = new CHITIETHD();
                     cthd.MaHD = hd.MaHD;
                     cthd.MaMH = item.iMaMH;
+                    cthd.DonGia = (decimal)item.dDonGia;
                     cthd.SL = item.iSoluong;
-                    cthd.DonGia= (decimal)item.dDonGia;
                     data.CHITIETHDs.InsertOnSubmit(cthd);
                 }
                 data.SubmitChanges();
