@@ -846,10 +846,10 @@ a.btn.btn-primary {
     border-color: #84c639;
     border-radius: 0;
 }
-button.submit.check_out{
+a.submit.check_out{
     display: block;
     position: relative;
-    padding: 11px 30px;
+    padding: 14px 30px;
     letter-spacing: 1px;
     background: #84c639;
     font-size: 1.2em;
@@ -3887,10 +3887,10 @@ input.checkbox:checked:after {
 		width: 50px;
 		    font-size: 12px;
 	}
-	button.submit.check_out {
+	a.submit.check_out {
 		display: block;
 		position: relative;
-		padding: 11px 14px;
+		padding: 14px 14px;
 		letter-spacing: 1px;
 		font-size: 0.9em;
 	}

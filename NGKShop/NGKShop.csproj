@@ -435,6 +435,8 @@
     <Content Include="Views\HomePage\SPTheoLNGK.cshtml" />
     <Content Include="Views\GioHang\Index.cshtml" />
     <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\GioHang\GiohangPartial.cshtml" />
+    <Content Include="Views\GioHang\ThanhTienPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

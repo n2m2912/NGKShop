@@ -68,6 +68,101 @@ namespace NGKShop.Controllers
             ViewBag.Tongtien = TongTien();
             return View(lstGiohang);
         }
+        public ActionResult GiohangPartial()
+        {
+            ViewBag.Tongsoluong = TongSoLuong();
+            ViewBag.Tongtien = TongTien();
+            return PartialView();
+        }
+        public ActionResult XoaGiohang(int iMaMH)
+        {
+            List<Giohang> lstGiohang = Laygiohang();
+            Giohang sanpham = lstGiohang.SingleOrDefault(n => n.iMaMH == iMaMH);
+            if (sanpham != null)
+            {
+                lstGiohang.RemoveAll(n => n.iMaMH == iMaMH);
+                return RedirectToAction("GioHang");
+            }
+            if (lstGiohang.Count == 0)
+            {
+                return RedirectToAction("Index", "HomePage");
+            }
+            return RedirectToAction("GioHang");
+        }
+        public ActionResult CapnhatGiohang(int iMaMH, FormCollection f)
+        {
+            List<Giohang> lstGiohang = Laygiohang();
+            Giohang sanpham = lstGiohang.SingleOrDefault(n => n.iMaMH == iMaMH);
+            if (sanpham != null)
+            {
+                sanpham.iSoluong = int.Parse(f["txtSoluong"].ToString());
+            }
+            return RedirectToAction("GioHang");
+        }
+        public ActionResult XoaTatcaGiohang()
+        {
+            List<Giohang> lstGiohang = Laygiohang();
+            lstGiohang.Clear();
+            return RedirectToAction("Index", "HomePage");
+        }
+        public ActionResult ThanhTienPartial()
+        {
+            ViewBag.Tongtien = TongTien();
+            return PartialView();
+        }
+        [HttpGet]
+        public ActionResult DatHang()
+        {
+            if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
+            {
+                return RedirectToAction("Dangnhap", "Nguoidung");
+            }
+            if (Session["Giohang"] == null)
+            {
+                return RedirectToAction("Index", "BookStore");
+            }
+            List<Giohang> lstGiohang = Laygiohang();
+            ViewBag.Tongsoluong = TongSoLuong();
+            ViewBag.Tongtien = TongTien();
 
+            return View(lstGiohang);
+        }
+        public ActionResult DatHang(FormCollection collection)
+        {
+            HOADON hd= new HOADON();
+            KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
+            List<Giohang> gh = Laygiohang();
+            hd.MaKH = kh.MaKH;
+            hd.NGAYLAPHD = DateTime.Now;
+            var ngaygiao = string.Format("{0:MM/dd/yyyy}", collection["Ngaygiao"]);
+            if (string.IsNullOrEmpty(ngaygiao))
+            {
+                ViewData["Loi1"] = "Ngày đặt hàng không được để trống";
+                return this.DatHang();
+            }
+            else
+            {
+                hd.Ngaygiaohang= DateTime.Parse(ngaygiao);
+                hd.Dathanhtoan = false;
+                data.HOADONs.InsertOnSubmit(hd);
+                data.SubmitChanges();
+                foreach (var item in gh)
+                {
+                    CHITIETHD cthd = new CHITIETHD();
+                    cthd.MaHD = hd.MaHD;
+                    cthd.MaMH = item.iMaMH;
+                    cthd.SL = item.iSoluong;
+                    cthd.DonGia= (decimal)item.dDonGia;
+                    data.CHITIETHDs.InsertOnSubmit(cthd);
+                }
+                data.SubmitChanges();
+                Session["Giohang"] = null;
+            }
+            return RedirectToAction("Xacnhandonhang", "Giohang");
+        }
+        public ActionResult Xacnhandonhang()
+        {
+            return View();
+        }
     }
 }

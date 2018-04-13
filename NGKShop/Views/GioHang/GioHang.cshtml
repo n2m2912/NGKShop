@@ -14,9 +14,10 @@
             <th>Hình ảnh</th>
             <th>Số lượng</th>
             <th>Tên sản phẩm</th>
-
             <th>Giá</th>
+            <th>Thành tiền</th>
             <th>Remove</th>
+            <th></th>
         </tr>
     </thead>
     @foreach (var item in Model)
@@ -24,25 +25,22 @@
          <tbody>
             <tr class="rem1">
                 <td class="invert">@item.iMaMH</td>
-                <td class="invert-image"><a href="single.html"><img src="~/Content/Hinhsp/@item.sHinhSP" alt=" " class="img-responsive"></a></td>
+                <td class="invert-image"><a href="@Url.Action("Details","HomePage", new { @id = item.iMaMH })"><img src="~/Content/Hinhsp/@item.sHinhSP" alt=" " class="img-responsive"></a></td>
+        @using (Html.BeginForm("CapnhatGiohang", "Giohang", new { @iMaMH = item.iMaMH }))
+        {
                 <td class="invert">
-                    <div class="quantity">
-                        <div class="quantity-select">
-                            <div class="entry value-minus">&nbsp;</div>
-                            <div class="entry value"><span>@item.iSoluong</span></div>
-                            <div class="entry value-plus active">&nbsp;</div>
-                        </div>
-                    </div>
+                    <input type="number" min="1" name="txtSoluong" value="@item.iSoluong" style="background-color:yellow;" />
                 </td>
                 <td class="invert">@item.sTenMH</td>
-
-                <td class="invert">@item.dDonGia</td>
+                <td class="invert">@String.Format("{0:0,0}", @item.dDonGia)</td>
+                <td class="invert">@String.Format("{0:0,0}", @item.dThanhtien)</td>
                 <td class="invert">
                     <div class="rem">
-                        <div class="close1"> </div>
+                        <a class="close1" href="@Url.Action("XoaGiohang", "GioHang", new { @iMaMH = item.iMaMH })"></a>
                     </div>
-
                 </td>
+                <td class="invert"><input type="submit" value="Update" /></td>
+          }
             </tr> 
         </tbody>
     }

@@ -32,6 +32,7 @@ Create table [HOADON]
 (
 	[MaHD] INT IDENTITY(1,1) NOT NULL,
 	[NGAYLAPHD] Datetime NOT NULL,
+	[Ngaygiaohang] Datetime,
 	[TONGTIEN] Money NOT NULL,
 	[MaKH] INT NOT NULL,
 	[Dathanhtoan] BIT ,
