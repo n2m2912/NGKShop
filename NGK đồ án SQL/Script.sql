@@ -49,6 +49,7 @@ Create table [MATHANG]
 	[MoTa] Nvarchar(4000) NULL,
 	[GiaBan] Money NOT NULL,
 	[HinhSP] Nvarchar(30) ,
+	[KhuyenMai] float not null
 Primary Key ([MaMH])
 ) 
 go

@@ -1,0 +1,63 @@
+﻿@model PagedList.PagedList<NGKShop.Models.LOAINGK>
+@using PagedList.Mvc;
+@using NGKShop.Models;
+
+@helper Truncate(string input, int length)
+{
+if (input.Length < length)
+{
+        @input
+}
+else
+{
+        @input.Substring(0, length)<text>...</text>
+}
+}
+@{
+    ViewBag.Title = "LoaiHang";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>LoaiHang</h2>
+
+<p>
+    <a href="@Url.Action("Create New", "Create")">Thêm mới</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên loại hàng
+        </th>
+        <th>
+            Mã nhà cung cấp
+        </th>
+        <th>
+            Logo
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenLH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNCC)
+        </td>
+        <td>
+            <img src="@Url.Content("~/Content/Hinhsp/" + item.HinhLOGO)" width="250px" height="250px" />
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", "Edit", new { id=item.MaLH })">Sửa</a>
+            <a href="@Url.Action("Details", "Details", new { id = item.MaLH})">Chi Tiết</a>
+            <a href="@Url.Action("Delete", "Delete", new { id = item.MaLH})">Xóa</a>
+        </td>
+    </tr>
+}
+
+</table>
+@*Tạo liên kết các trang*@
+<div class="pagination">
+    @Html.PagedListPager(Model, page => Url.Action("LoaiHang", new { page = page }))
+</div>

@@ -415,6 +415,15 @@
     <Content Include="Content\images\tag.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\shop-homepage.css" />
+    <Content Include="Content\Slides\1.jpg" />
+    <Content Include="Content\Slides\10.jpg" />
+    <Content Include="Content\Slides\11.jpg" />
+    <Content Include="Content\Slides\12.jpg" />
+    <Content Include="Content\Slides\2.jpg" />
+    <Content Include="Content\Slides\5.jpg" />
+    <Content Include="Content\Slides\6.jpg" />
+    <Content Include="Content\Slides\8.jpg" />
+    <Content Include="Content\Slides\9.jpg" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -534,6 +543,8 @@
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Admin\NGK.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\LoaiHang.cshtml" />
+    <Content Include="Views\Admin\KhachHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

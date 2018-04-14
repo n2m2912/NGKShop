@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>Trang quản lý website NGKShop</title>
 
     <meta charset="utf-8">
 
@@ -25,7 +25,7 @@
 <body style="">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="@Url.Action("Index","Admin")">Book <span style="color:red;font-size:30px;">Store</span></a>
+            <a class="navbar-brand" href="@Url.Action("Index","Admin")">NGK <span style="color:red;font-size:30px;">Shop</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -43,14 +43,14 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Nhaxuatban","Admin")">
-                            Quản lý nhà xuất bản
+                        <a class="nav-link" href="@Url.Action("LoaiHang","Admin")">
+                            Quản lý loại hàng
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Sach","Admin")">
-                            Quản lý sách
+                        <a class="nav-link" href="@Url.Action("KhachHang","Admin")">
+                            Quản lý Khách
                         </a>
                     </li>
                 </ul>
@@ -70,7 +70,7 @@
     <!-- Footer -->
     <footer class="py-5 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+            <p class="m-0 text-center text-white">Copyright &copy; NGKShop 2018</p>
         </div>
         <!-- /.container -->
     </footer>

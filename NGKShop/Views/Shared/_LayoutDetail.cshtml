@@ -62,11 +62,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- header -->
     <div class="agileits_header">
         <div class="w3l_offers">
-            <a href="products.html">Hàng khuyến mãi của hôm nay !!</a>
+            <a href="@Url.Action("KhuyenMai","HomePage")">Hàng khuyến mãi của hôm nay !</a>
         </div>
         <div class="w3l_search">
-            <form action="#" method="post">
-                <input type="text" name="Product" value="Tìm kiếm sản phẩm..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search a product...';}" required="">
+            <form action="@Url.Action("TimKiem", "HomePage")" method="post">
+                <input type="text" name="Product" value="Tìm kiếm sản phẩm..." onfocus="this.value = '';" required="">
                 <input type="submit" value=" ">
             </form>
         </div>
@@ -89,9 +89,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </li>
             </ul>
         </div>
-        <div class="w3l_header_right1">
-            <h2><a href="mail.html">Dịch vụ</a></h2>
-        </div>
+       
         <div class="clearfix"> </div>
     </div>
     <!-- script-for sticky-nav -->
@@ -116,14 +114,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h1><a href="@Url.Action("Index","HomePage")"><span>NGK</span> Shop</a></h1>
             </div>
             <div class="w3ls_logo_products_left1">
-                <ul class="special_items">
-                    <li><a href="events.html">Sự kiện</a><i>/</i></li>
-                    <li><a href="about.html">Về chúng tôi</a><i>/</i></li>
-                    <li><a href="products.html">Giá tốt</a><i>/</i></li>
-                    <li><a href="services.html">Dịch vụ</a></li>
-                </ul>
-            </div>
-            <div class="w3ls_logo_products_left1">
                 <ul class="phone_email">
                     <li><i class="fa fa-phone" aria-hidden="true"></i>(+84) 1232 496568</li>
                     <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:store@grocery.com">store@grocery.com</a></li>
@@ -137,8 +127,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="products-breadcrumb">
         <div class="container">
             <ul>
-                <li><i class="fa fa-home" aria-hidden="true"></i><a href="index.html">Home</a><span>|</span></li>
-                <li>Single Page</li>
+                <li><i class="fa fa-home" aria-hidden="true"></i><a href="@Url.Action("Index","HomePage")">Trang chủ</a><span>|</span></li>
+                <li>Chi tiết sản phẩm</li>
             </ul>
         </div>
     </div>
@@ -159,45 +149,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                     <ul class="nav navbar-nav nav_1">
-                        <li><a href="products.html">Branded Foods</a></li>
-                        <li><a href="household.html">Households</a></li>
-                        <li class="dropdown mega-dropdown active">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Veggies & Fruits<span class="caret"></span></a>
-                            <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
-                                <div class="w3ls_vegetables">
-                                    <ul>
-                                        <li><a href="vegetables.html">Vegetables</a></li>
-                                        <li><a href="vegetables.html">Fruits</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li><a href="kitchen.html">Kitchen</a></li>
-                        <li><a href="short-codes.html">Short Codes</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Beverages<span class="caret"></span></a>
-                            <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
-                                <div class="w3ls_vegetables">
-                                    <ul>
-                                        <li><a href="drinks.html">Soft Drinks</a></li>
-                                        <li><a href="drinks.html">Juices</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li><a href="pet.html">Pet Food</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Frozen Foods<span class="caret"></span></a>
-                            <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
-                                <div class="w3ls_vegetables">
-                                    <ul>
-                                        <li><a href="frozen.html">Frozen Snacks</a></li>
-                                        <li><a href="frozen.html">Frozen Nonveg</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li><a href="bread.html">Bread & Bakery</a></li>
+                        @Html.Action("LoaiNGK", "HomePage")
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </nav>
@@ -215,467 +167,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     <!-- //banner -->
     <!-- brands -->
-    <div class="w3ls_w3l_banner_nav_right_grid w3ls_w3l_banner_nav_right_grid_popular">
-        <div class="container">
-            <h3>Popular Brands</h3>
-            <div class="w3ls_w3l_banner_nav_right_grid1">
-                <h6>food</h6>
-                <div class="col-md-3 w3ls_w3l_banner_left">
-                    <div class="hover14 column">
-                        <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-                            <div class="agile_top_brand_left_grid_pos">
-                                <img src="~/Content/images/offer.png" alt=" " class="img-responsive" />
-                            </div>
-                            <div class="agile_top_brand_left_grid1">
-                                <figure>
-                                    <div class="snipcart-item block">
-                                        <div class="snipcart-thumb">
-                                            <a href="single.html"><img src="~/Content/images/5.png" alt=" " class="img-responsive" /></a>
-                                            <p>knorr instant soup (100 gm)</p>
-                                            <h4>$3.00 <span>$5.00</span></h4>
-                                        </div>
-                                        <div class="snipcart-details">
-                                            <form action="#" method="post">
-                                                <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name" value="knorr instant soup" />
-                                                    <input type="hidden" name="amount" value="3.00" />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                    <input type="hidden" name="currency_code" value="USD" />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
-                                                </fieldset>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 w3ls_w3l_banner_left">
-                    <div class="hover14 column">
-                        <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-                            <div class="agile_top_brand_left_grid_pos">
-                                <img src="~/Content/images/offer.png" alt=" " class="img-responsive" />
-                            </div>
-                            <div class="agile_top_brand_left_grid1">
-                                <figure>
-                                    <div class="snipcart-item block">
-                                        <div class="snipcart-thumb">
-                                            <a href="single.html"><img src="~/Content/images/6.png" alt=" " class="img-responsive" /></a>
-                                            <p>chings noodles (75 gm)</p>
-                                            <h4>$5.00 <span>$8.00</span></h4>
-                                        </div>
-                                        <div class="snipcart-details">
-                                            <form action="#" method="post">
-                                                <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name" value="chings noodles" />
-                                                    <input type="hidden" name="amount" value="5.00" />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                    <input type="hidden" name="currency_code" value="USD" />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
-                                                </fieldset>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 w3ls_w3l_banner_left">
-                    <div class="hover14 column">
-                        <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-                            <div class="agile_top_brand_left_grid_pos">
-                                <img src="~/Content/images/offer.png" alt=" " class="img-responsive" />
-                            </div>
-                            <div class="agile_top_brand_left_grid1">
-                                <figure>
-                                    <div class="snipcart-item block">
-                                        <div class="snipcart-thumb">
-                                            <a href="single.html"><img src="~/Content/images/7.png" alt=" " class="img-responsive" /></a>
-                                            <p>lahsun sev (150 gm)</p>
-                                            <h4>$3.00 <span>$5.00</span></h4>
-                                        </div>
-                                        <div class="snipcart-details">
-                                            <form action="#" method="post">
-                                                <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name" value="lahsun sev" />
-                                                    <input type="hidden" name="amount" value="3.00" />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                    <input type="hidden" name="currency_code" value="USD" />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
-                                                </fieldset>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 w3ls_w3l_banner_left">
-                    <div class="hover14 column">
-                        <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-                            <div class="agile_top_brand_left_grid_pos">
-                                <img src="~/Content/images/offer.png" alt=" " class="img-responsive" />
-                            </div>
-                            <div class="agile_top_brand_left_grid1">
-                                <figure>
-                                    <div class="snipcart-item block">
-                                        <div class="snipcart-thumb">
-                                            <a href="single.html"><img src="~/Content/images/8.png" alt=" " class="img-responsive" /></a>
-                                            <p>premium bake rusk (300 gm)</p>
-                                            <h4>$5.00 <span>$7.00</span></h4>
-                                        </div>
-                                        <div class="snipcart-details">
-                                            <form action="#" method="post">
-                                                <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name" value="premium bake rusk" />
-                                                    <input type="hidden" name="amount" value="5.00" />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                    <input type="hidden" name="currency_code" value="USD" />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
-                                                </fieldset>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="w3ls_w3l_banner_nav_right_grid1">
-                <h6>vegetables & fruits</h6>
-                <div class="col-md-3 w3ls_w3l_banner_left">
-                    <div class="hover14 column">
-                        <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-                            <div class="agile_top_brand_left_grid_pos">
-                                <img src="~/Content/images/offer.png" alt=" " class="img-responsive" />
-                            </div>
-                            <div class="agile_top_brand_left_grid1">
-                                <figure>
-                                    <div class="snipcart-item block">
-                                        <div class="snipcart-thumb">
-                                            <a href="single.html"><img src="~/Content/images/9.png" alt=" " class="img-responsive" /></a>
-                                            <p>fresh spinach (palak)</p>
-                                            <h4>$2.00 <span>$3.00</span></h4>
-                                        </div>
-                                        <div class="snipcart-details">
-                                            <form action="#" method="post">
-                                                <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name" value="fresh spinach" />
-                                                    <input type="hidden" name="amount" value="2.00" />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                    <input type="hidden" name="currency_code" value="USD" />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
-                                                </fieldset>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 w3ls_w3l_banner_left">
-                    <div class="hover14 column">
-                        <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-                            <div class="agile_top_brand_left_grid_pos">
-                                <img src="~/Content/images/offer.png" alt=" " class="img-responsive" />
-                            </div>
-                            <div class="agile_top_brand_left_grid1">
-                                <figure>
-                                    <div class="snipcart-item block">
-                                        <div class="snipcart-thumb">
-                                            <a href="single.html"><img src="~/Content/images/10.png" alt=" " class="img-responsive" /></a>
-                                            <p>fresh mango dasheri (1 kg)</p>
-                                            <h4>$5.00 <span>$8.00</span></h4>
-                                        </div>
-                                        <div class="snipcart-details">
-                                            <form action="#" method="post">
-                                                <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name" value="fresh mango dasheri" />
-                                                    <input type="hidden" name="amount" value="5.00" />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                    <input type="hidden" name="currency_code" value="USD" />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
-                                                </fieldset>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 w3ls_w3l_banner_left">
-                    <div class="hover14 column">
-                        <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-                            <div class="tag"><img src="~/Content/images/tag.png" alt=" " class="img-responsive" /></div>
-                            <div class="agile_top_brand_left_grid1">
-                                <figure>
-                                    <div class="snipcart-item block">
-                                        <div class="snipcart-thumb">
-                                            <a href="single.html"><img src="~/Content/images/11.png" alt=" " class="img-responsive" /></a>
-                                            <p>fresh apple red (1 kg)</p>
-                                            <h4>$6.00 <span>$8.00</span></h4>
-                                        </div>
-                                        <div class="snipcart-details">
-                                            <form action="#" method="post">
-                                                <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name" value="fresh apple red" />
-                                                    <input type="hidden" name="amount" value="6.00" />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                    <input type="hidden" name="currency_code" value="USD" />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
-                                                </fieldset>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 w3ls_w3l_banner_left">
-                    <div class="hover14 column">
-                        <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-                            <div class="agile_top_brand_left_grid_pos">
-                                <img src="~/Content/images/offer.png" alt=" " class="img-responsive" />
-                            </div>
-                            <div class="agile_top_brand_left_grid1">
-                                <figure>
-                                    <div class="snipcart-item block">
-                                        <div class="snipcart-thumb">
-                                            <a href="single.html"><img src="~/Content/images/12.png" alt=" " class="img-responsive" /></a>
-                                            <p>fresh broccoli (500 gm)</p>
-                                            <h4>$4.00 <span>$6.00</span></h4>
-                                        </div>
-                                        <div class="snipcart-details">
-                                            <form action="#" method="post">
-                                                <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name" value="fresh broccoli" />
-                                                    <input type="hidden" name="amount" value="4.00" />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                    <input type="hidden" name="currency_code" value="USD" />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
-                                                </fieldset>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="w3ls_w3l_banner_nav_right_grid1">
-                <h6>beverages</h6>
-                <div class="col-md-3 w3ls_w3l_banner_left">
-                    <div class="hover14 column">
-                        <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-                            <div class="agile_top_brand_left_grid_pos">
-                                <img src="~/Content/images/offer.png" alt=" " class="img-responsive" />
-                            </div>
-                            <div class="agile_top_brand_left_grid1">
-                                <figure>
-                                    <div class="snipcart-item block">
-                                        <div class="snipcart-thumb">
-                                            <a href="single.html"><img src="~/Content/images/13.png" alt=" " class="img-responsive" /></a>
-                                            <p>mixed fruit juice (1 ltr)</p>
-                                            <h4>$3.00 <span>$4.00</span></h4>
-                                        </div>
-                                        <div class="snipcart-details">
-                                            <form action="#" method="post">
-                                                <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name" value="mixed fruit juice" />
-                                                    <input type="hidden" name="amount" value="3.00" />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                    <input type="hidden" name="currency_code" value="USD" />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
-                                                </fieldset>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 w3ls_w3l_banner_left">
-                    <div class="hover14 column">
-                        <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-                            <div class="agile_top_brand_left_grid_pos">
-                                <img src="~/Content/images/offer.png" alt=" " class="img-responsive" />
-                            </div>
-                            <div class="agile_top_brand_left_grid1">
-                                <figure>
-                                    <div class="snipcart-item block">
-                                        <div class="snipcart-thumb">
-                                            <a href="single.html"><img src="~/Content/images/14.png" alt=" " class="img-responsive" /></a>
-                                            <p>prune juice - sunsweet (1 ltr)</p>
-                                            <h4>$4.00 <span>$5.00</span></h4>
-                                        </div>
-                                        <div class="snipcart-details">
-                                            <form action="#" method="post">
-                                                <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name" value="prune juice - sunsweet" />
-                                                    <input type="hidden" name="amount" value="4.00" />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                    <input type="hidden" name="currency_code" value="USD" />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
-                                                </fieldset>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 w3ls_w3l_banner_left">
-                    <div class="hover14 column">
-                        <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-                            <div class="tag"><img src="~/Content/images/tag.png" alt=" " class="img-responsive" /></div>
-                            <div class="agile_top_brand_left_grid1">
-                                <figure>
-                                    <div class="snipcart-item block">
-                                        <div class="snipcart-thumb">
-                                            <a href="single.html"><img src="~/Content/images/15.png" alt=" " class="img-responsive" /></a>
-                                            <p>coco cola zero can (330 ml)</p>
-                                            <h4>$3.00 <span>$5.00</span></h4>
-                                        </div>
-                                        <div class="snipcart-details">
-                                            <form action="#" method="post">
-                                                <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name" value="coco cola zero can" />
-                                                    <input type="hidden" name="amount" value="3.00" />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                    <input type="hidden" name="currency_code" value="USD" />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
-                                                </fieldset>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 w3ls_w3l_banner_left">
-                    <div class="hover14 column">
-                        <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-                            <div class="agile_top_brand_left_grid_pos">
-                                <img src="~/Content/images/offer.png" alt=" " class="img-responsive" />
-                            </div>
-                            <div class="agile_top_brand_left_grid1">
-                                <figure>
-                                    <div class="snipcart-item block">
-                                        <div class="snipcart-thumb">
-                                            <a href="single.html"><img src="~/Content/images/16.png" alt=" " class="img-responsive" /></a>
-                                            <p>sprite bottle (2 ltr)</p>
-                                            <h4>$3.00 <span>$4.00</span></h4>
-                                        </div>
-                                        <div class="snipcart-details">
-                                            <form action="#" method="post">
-                                                <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name" value="sprite bottle" />
-                                                    <input type="hidden" name="amount" value="3.00" />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                    <input type="hidden" name="currency_code" value="USD" />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
-                                                </fieldset>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-        </div>
-    </div>
     <!-- //brands -->
     <!-- newsletter -->
-    <div class="newsletter">
-        <div class="container">
-            <div class="w3agile_newsletter_left">
-                <h3>sign up for our newsletter</h3>
-            </div>
-            <div class="w3agile_newsletter_right">
-                <form action="#" method="post">
-                    <input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-                    <input type="submit" value="subscribe now">
-                </form>
-            </div>
-            <div class="clearfix"> </div>
-        </div>
-    </div>
     <!-- //newsletter -->
     <!-- footer -->
     <div class="footer">
@@ -683,20 +176,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-md-3 w3_footer_grid">
                 <h3>information</h3>
                 <ul class="w3_footer_grid_list">
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="products.html">Best Deals</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="short-codes.html">Short Codes</a></li>
+                    <li><a href="@Url.Action("About","DichVu")">Về chúng tôi</a></li>
+                    <li><a href="@Url.Action("KhuyenMai","HomePage")">Hàng khuyến mãi</a></li>
+                    <li><a href="@Url.Action("Service","DichVu")">Phương thức thanh toán</a></li>
                 </ul>
             </div>
             <div class="col-md-3 w3_footer_grid">
-                <h3>policy info</h3>
-                <ul class="w3_footer_grid_list">
-                    <li><a href="faqs.html">FAQ</a></li>
-                    <li><a href="privacy.html">privacy policy</a></li>
-                    <li><a href="privacy.html">terms of use</a></li>
-                </ul>
             </div>
             <div class="col-md-6 w3_footer_grid">
                 <div id="map"></div>
@@ -713,18 +198,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="w3_footer_grid_bottom">
                         <h5>connect with us</h5>
                         <ul class="agileits_social_icons">
-                            <li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#" class="google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                            <li><a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            <li><a href="#" class="dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.facebook.com" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.twitter.com" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="https://plus.google.com" class="google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="clearfix"> </div>
             </div>
             <div class="wthree_footer_copy">
-                <p>© 2016 Grocery Store. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+                <p>© 2018 NGKShop.</p>
             </div>
         </div>
     </div>

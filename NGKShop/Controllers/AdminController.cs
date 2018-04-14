@@ -54,5 +54,17 @@ namespace NGKShop.Controllers
             int pageSize = 7;
             return View(data.MATHANGs.ToList().OrderBy(n => n.MaMH).ToPagedList(pageNumber, pageSize));
         }
+        public ActionResult LoaiHang(int? page)
+        {
+            int pageNumber = (page ?? 1);
+            int pageSize = 7;
+            return View(data.LOAINGKs.ToList().OrderBy(n => n.MaLH).ToPagedList(pageNumber, pageSize));
+        }
+        public ActionResult KhachHang(int? page)
+        {
+            int pageNumber = (page ?? 1);
+            int pageSize = 7;
+            return View(data.KHACHHANGs.ToList().OrderBy(n => n.MaKH).ToPagedList(pageNumber, pageSize));
+        }
     }
 }

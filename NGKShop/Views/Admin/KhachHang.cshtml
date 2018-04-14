@@ -1,0 +1,74 @@
+﻿@model PagedList.PagedList<NGKShop.Models.KHACHHANG>
+@using PagedList.Mvc;
+@using NGKShop.Models;
+
+@helper Truncate(string input, int length)
+{
+if (input.Length < length)
+{
+        @input
+}
+else
+{
+        @input.Substring(0, length)<text>...</text>
+}
+}
+@{
+    ViewBag.Title = "KhachHang";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>KhachHang</h2>
+
+<p>
+    <a href="@Url.Action("Create New", "Create")">Thêm mới</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên khách hàng
+        </th>
+        <th>
+            Số điện thoại
+        </th>
+        <th>
+           Địa chỉ
+        </th>
+        <th>
+           Email
+        </th>
+        <th>
+            Tên đăng nhập
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenDN)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", "Edit", new { id=item.MaKH })">Sửa</a>
+            <a href="@Url.Action("Details", "Details", new { id = item.MaKH})">Chi Tiết</a>
+            <a href="@Url.Action("Delete", "Delete", new { id = item.MaKH })">Xóa</a>
+        </td>
+    </tr>
+}
+
+</table>
+<div class="pagination">
+    @Html.PagedListPager(Model, page => Url.Action("KhachHang", new { page = page }))
+</div>
