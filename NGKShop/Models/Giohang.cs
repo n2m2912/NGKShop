@@ -19,9 +19,11 @@ namespace NGKShop.Models
 
         public int iSoluong { set; get; }
 
+        public Double kKhuyenmai { set; get; }
+
         public Double dThanhtien
         {
-            get { return iSoluong * dDonGia; }
+            get { return (iSoluong * dDonGia)-(iSoluong * dDonGia *(Double)(kKhuyenmai/100)); }
         }
         public Giohang(int MaMH)
         {
@@ -29,6 +31,7 @@ namespace NGKShop.Models
             MATHANG ngk = data.MATHANGs.Single(n => n.MaMH == iMaMH);
             sTenMH = ngk.TenMH;
             sHinhSP = ngk.HinhSP;
+            kKhuyenmai = (Double)ngk.KhuyenMai;
             dDonGia = double.Parse(ngk.GiaBan.ToString());
             iSoluong = 1;
         }

@@ -43,7 +43,11 @@ namespace NGKShop.Controllers
             var mathang = data.MATHANGs.Where(p => p.TenMH.Contains(TenMH));
             return View(mathang);
         }
-
+        public ActionResult KhuyenMai()
+        {
+            var mh = data.MATHANGs.Where(n => n.KhuyenMai != 0);
+            return View(mh);
+        }
        
     }
 }

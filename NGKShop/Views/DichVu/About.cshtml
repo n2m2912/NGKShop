@@ -56,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- header -->
     <div class="agileits_header">
         <div class="w3l_offers">
-            <a href="products.html">Hàng khuyến mãi của hôm nay !</a>
+            <a href="@Url.Action("KhuyenMai","HomePage")">Hàng khuyến mãi của hôm nay !</a>
         </div>
         <div class="w3l_search">
             <form action="#" method="post">
@@ -193,9 +193,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-md-3 w3_footer_grid">
                 <h3>information</h3>
                 <ul class="w3_footer_grid_list">
-                    <li><a href="about.html">Về chúng tôi</a></li>
-                    <li><a href="products.html">Hàng khuyến mãi</a></li>
-                    <li><a href="services.html">Dịch vụ</a></li>
+                    <li><a href="@Url.Action("About","DichVu")">Về chúng tôi</a></li>
+                    <li><a href="@Url.Action("KhuyenMai","HomePage")">Hàng khuyến mãi</a></li>
+                    <li><a href="@Url.Action("Service","DichVu")">Phương thức thanh toán</a></li>
                 </ul>
             </div>
             <div class="col-md-3 w3_footer_grid">

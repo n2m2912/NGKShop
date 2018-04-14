@@ -80,3 +80,7 @@ C:\Users\n2m\Desktop\NGKShop\NGKShop\bin\Microsoft.Owin.Security.MicrosoftAccoun
 C:\Users\n2m\Desktop\NGKShop\NGKShop\obj\Debug\NGKShop.dll
 C:\Users\n2m\Desktop\NGKShop\NGKShop\obj\Debug\NGKShop.pdb
 C:\Users\n2m\Desktop\NGKShop\NGKShop\obj\Debug\NGKShop.csprojResolveAssemblyReference.cache
+C:\Users\n2m\Desktop\NGKShop\NGKShop\bin\PagedList.dll
+C:\Users\n2m\Desktop\NGKShop\NGKShop\bin\PagedList.Mvc.dll
+C:\Users\n2m\Desktop\NGKShop\NGKShop\bin\PagedList.xml
+C:\Users\n2m\Desktop\NGKShop\NGKShop\bin\PagedList.Mvc.xml
