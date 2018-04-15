@@ -21,32 +21,32 @@ else
 <h2>NGK</h2>
 
 <p>
-    <a href="@Url.Action("Create New", "Create")">Thêm mới</a>
+    @Html.ActionLink("Thêm NGK","ThemNGK")
 </p>
-<table class="table">
+<table class="table" style="border: 1px solid grey">
     <tr>
-        <th>
+        <th style="width:100px">
             Mã mặt hàng
         </th>
-        <th>
+        <th style="width:150px">
            Tên mặt hàng
         </th>
-        <th>
+        <th style="width:100px">
             Đơn vị tính
         </th>
-        <th>
+        <th style="width:300px">
             Mô tả
         </th>
-        <th>
+        <th style="width:100px">
             Giá bán
         </th>
-        <th>
+        <th style="width:250px">
             Hình sản phẩm
         </th>
-        <th>
+        <th style="width:100px">
             Khuyến mãi
         </th>
-        <th>
+        <th style="width:300px">
             Chức năng
         </th>
     </tr>
@@ -75,9 +75,9 @@ else
             @Html.DisplayFor(modelItem => item.KhuyenMai)%
         </td>
         <td>
-           <a href="@Url.Action("Edit", "Edit", new { id=item.MaMH })">Sửa</a> 
-            <a href="@Url.Action("Details", "Details", new { id = item.MaMH })">Chi Tiết</a>
-            <a href="@Url.Action("Delete", "Delete", new { id = item.MaMH })">Xóa</a>
+           @Html.ActionLink("Sửa", "SuaNGK", new { id=item.MaMH }) |
+           @Html.ActionLink("Chi tiết", "ChitietNGK", new { id = item.MaMH }) |
+           @Html.ActionLink("Xóa", "XoaNGK", new { id = item.MaMH })
         </td>
     </tr>
 }

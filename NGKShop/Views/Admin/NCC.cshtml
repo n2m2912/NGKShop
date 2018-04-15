@@ -1,0 +1,54 @@
+﻿@model PagedList.PagedList<NGKShop.Models.NCC>
+@using PagedList.Mvc;
+@using NGKShop.Models;
+
+@helper Truncate(string input, int length)
+{
+if (input.Length < length)
+{
+        @input
+}
+else
+{
+        @input.Substring(0, length)<text>...</text>
+}
+}
+@{
+    ViewBag.Title = "KhachHang";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@{
+    ViewBag.Title = "NCC";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>NCC</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên nhà cung cấp
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNCC)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", "Edit", new { id=item.MaNCC })">Sửa</a>
+            <a href="@Url.Action("Details", "Details", new { id = item.MaNCC})">Chi Tiết</a>
+            <a href="@Url.Action("Delete", "Delete", new { id = item.MaNCC})">Xóa</a>
+        </td>
+    </tr>
+}
+
+</table>
+<div class="pagination">
+    @Html.PagedListPager(Model, page => Url.Action("KhachHang", new { page = page }))
+</div>

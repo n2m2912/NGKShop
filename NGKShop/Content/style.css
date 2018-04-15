@@ -320,7 +320,7 @@ ul.dropdown-menu.drp-mnu li a i {
 }
 .w3l_banner_nav_right_banner2{
 	background:url('Slides/12.jpg') no-repeat 0px 0px;
-	background-size:cover;
+    background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
 	-o-background-size:cover;
