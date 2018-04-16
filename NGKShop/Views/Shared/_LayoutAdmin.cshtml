@@ -14,7 +14,16 @@
     <!-- Custom styles for this template -->
     <link href="~/Content/AdminPage/shop-homepage.css" rel="stylesheet">
     <link href="~/Content/PagedList.css" rel="stylesheet" />
-    <script>tinymce.init({ selector: 'textarea', forced_root_block: '', });</script>
+
+    <script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({
+    encoding: 'xml',
+    selector: 'textarea',
+    valid_elements: "strong/b,em/i,font",
+    forced_root_block: '',
+    font_formats: 'Arial=arial,helvetica,sans-serif;Courier New=courier new,courier,monospace;AkrutiKndPadmini=Akpdmi-n'
+    });
+    </script>
     <style>
         h2 {
             margin-top: 1em;

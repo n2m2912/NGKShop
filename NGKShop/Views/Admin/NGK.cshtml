@@ -63,7 +63,8 @@ else
             @Html.DisplayFor(modelItem => item.DonViTinh)
         </td>
         <td>
-            @Truncate(item.MoTa,100)
+            @Html.Raw(item.MoTa.ToString())
+           
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.GiaBan)

@@ -60,24 +60,6 @@ namespace NGKShop.Controllers
             int pageSize = 7;
             return View(data.MATHANGs.ToList().OrderBy(n => n.MaMH).ToPagedList(pageNumber, pageSize));
         }
-        public ActionResult LoaiHang(int? page)
-        {
-            int pageNumber = (page ?? 1);
-            int pageSize = 7;
-            return View(data.LOAINGKs.ToList().OrderBy(n => n.MaLH).ToPagedList(pageNumber, pageSize));
-        }
-        public ActionResult KhachHang(int? page)
-        {
-            int pageNumber = (page ?? 1);
-            int pageSize = 7;
-            return View(data.KHACHHANGs.ToList().OrderBy(n => n.MaKH).ToPagedList(pageNumber, pageSize));
-        }
-        public ActionResult NCC(int? page)
-        {
-            int pageNumber = (page ?? 1);
-            int pageSize = 7;
-            return View(data.NCCs.ToList().OrderBy(n => n.MaNCC).ToPagedList(pageNumber, pageSize));
-        }
         [HttpGet]
         public ActionResult ThemNGK()
         {
@@ -102,7 +84,7 @@ namespace NGKShop.Controllers
                     var fileName = Path.GetFileName(fileupload.FileName);
                     var path = Path.Combine(Server.MapPath("~/Content/Hinhsp"), fileName);
                     if (System.IO.File.Exists(path))
-                    { 
+                    {
                         ViewBag.Thongbao = "Hình ảnh đã tồn tại";
                         return View();
                     }
@@ -110,7 +92,7 @@ namespace NGKShop.Controllers
                     {
                         fileupload.SaveAs(path);
                     }
-                    ngk.HinhSP= fileName;
+                    ngk.HinhSP = fileName;
                     data.MATHANGs.InsertOnSubmit(ngk);
                     data.SubmitChanges();
                 }
@@ -120,7 +102,7 @@ namespace NGKShop.Controllers
         }
         public ActionResult ChitietNGK(int id)
         {
-            MATHANG ngk = data.MATHANGs.SingleOrDefault(n => n.MaMH== id);
+            MATHANG ngk = data.MATHANGs.SingleOrDefault(n => n.MaMH == id);
             ViewBag.MaMH = ngk.MaMH;
             if (ngk == null)
             {
@@ -132,7 +114,7 @@ namespace NGKShop.Controllers
         [HttpGet]
         public ActionResult XoaNGK(int id)
         {
-            MATHANG ngk = data.MATHANGs.SingleOrDefault(n => n.MaMH== id);
+            MATHANG ngk = data.MATHANGs.SingleOrDefault(n => n.MaMH == id);
             ViewBag.MaMH = ngk.MaMH;
             if (ngk == null)
             {
@@ -144,7 +126,7 @@ namespace NGKShop.Controllers
         [HttpPost, ActionName("XoaNGK")]
         public ActionResult XacnhanxoaNGK(int id)
         {
-            MATHANG ngk = data.MATHANGs.SingleOrDefault(n => n.MaMH== id);
+            MATHANG ngk = data.MATHANGs.SingleOrDefault(n => n.MaMH == id);
             ViewBag.MaMH = ngk.MaMH;
             if (ngk == null)
             {
@@ -177,9 +159,7 @@ namespace NGKShop.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SuaNGK(MATHANG ngk, HttpPostedFileBase fileUpload)
         {
-
-
-
+            
             MATHANG nngk = data.MATHANGs.SingleOrDefault(n => n.MaMH == ngk.MaMH);
             var MaLH = ngk.MaLH;
             var TenMH = ngk.TenMH;
@@ -221,11 +201,70 @@ namespace NGKShop.Controllers
                             nngk.HinhSP = fileName;
                         }
                     }
-                    data.SubmitChanges();
                 }
+                data.SubmitChanges();
             }
             return RedirectToAction("NGK");
         }
+        public ActionResult LoaiHang(int? page)
+        {
+            int pageNumber = (page ?? 1);
+            int pageSize = 7;
+            return View(data.LOAINGKs.ToList().OrderBy(n => n.MaLH).ToPagedList(pageNumber, pageSize));
+        }
+        [HttpGet]
+        public ActionResult ThemLH()
+        {
+            ViewBag.MaNCC = new SelectList(data.NCCs.ToList().OrderBy(n => n.TenNCC), "MaNCC", "TenNCC");
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ThemLH(MATHANG ngk, HttpPostedFileBase fileupload)
+        {
+            ViewBag.MaLH = new SelectList(data.LOAINGKs.ToList().OrderBy(n => n.TenLH), "MaLH", "TenLH");
+            if (fileupload == null)
+            {
+                ViewBag.Thongbao = "Vui lòng chọn ảnh bìa";
+                return View();
+            }
+
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    var fileName = Path.GetFileName(fileupload.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/Hinhsp"), fileName);
+                    if (System.IO.File.Exists(path))
+                    {
+                        ViewBag.Thongbao = "Hình ảnh đã tồn tại";
+                        return View();
+                    }
+                    else
+                    {
+                        fileupload.SaveAs(path);
+                    }
+                    ngk.HinhSP = fileName;
+                    data.MATHANGs.InsertOnSubmit(ngk);
+                    data.SubmitChanges();
+                }
+                return RedirectToAction("NGK");
+            }
+
+        }
+        public ActionResult KhachHang(int? page)
+        {
+            int pageNumber = (page ?? 1);
+            int pageSize = 7;
+            return View(data.KHACHHANGs.ToList().OrderBy(n => n.MaKH).ToPagedList(pageNumber, pageSize));
+        }
+        public ActionResult NCC(int? page)
+        {
+            int pageNumber = (page ?? 1);
+            int pageSize = 7;
+            return View(data.NCCs.ToList().OrderBy(n => n.MaNCC).ToPagedList(pageNumber, pageSize));
+        }
+        
      }
 
 }
