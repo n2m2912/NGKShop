@@ -100,11 +100,11 @@ namespace NGKShop.Controllers
                 if (ModelState.IsValid)
                 {
                     var fileName = Path.GetFileName(fileupload.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Content/Hinhsp/"), fileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/Hinhsp"), fileName);
                     if (System.IO.File.Exists(path))
                     { 
                         ViewBag.Thongbao = "Hình ảnh đã tồn tại";
-                        
+                        return View();
                     }
                     else
                     {
@@ -174,16 +174,20 @@ namespace NGKShop.Controllers
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult SuaNGK(MATHANG ngk, HttpPostedFileBase fileupload)
+        [ValidateAntiForgeryToken]
+        public ActionResult SuaNGK(MATHANG ngk, HttpPostedFileBase fileUpload)
         {
-            
-            MATHANG nngk= data.MATHANGs.SingleOrDefault(n => n.MaMH == ngk.MaMH);
+
+
+
+            MATHANG nngk = data.MATHANGs.SingleOrDefault(n => n.MaMH == ngk.MaMH);
             var MaLH = ngk.MaLH;
             var TenMH = ngk.TenMH;
             var Donvitinh = ngk.DonViTinh;
             var Mota = ngk.MoTa;
             var Giaban = ngk.GiaBan;
             var Khuyenmai = ngk.KhuyenMai;
+
 
             nngk.MaLH = MaLH;
             nngk.TenMH = TenMH;
@@ -192,31 +196,36 @@ namespace NGKShop.Controllers
             nngk.GiaBan = Giaban;
             nngk.KhuyenMai = Khuyenmai;
 
-            ViewBag.MaLH = new SelectList(data.LOAINGKs.ToList().OrderBy(n => n.TenLH), "MaLH", "TenLH");
-            if (fileupload == null)
+            if (ModelState.IsValid)
             {
-                nngk.HinhSP = getImage(ngk.MaMH);
-            }
-
-            else
-            {
-                    var fileName = Path.GetFileName(fileupload.FileName);
-                    var path = Path.Combine(HostingEnvironment.MapPath("~/Content/Hinhsp"), fileName);
-                    if (System.IO.File.Exists(path))
+                ViewBag.MaLH = new SelectList(data.LOAINGKs.ToList().OrderBy(n => n.TenLH), "MaLH", "TenLH");
+                if (fileUpload == null)
+                {
+                    nngk.HinhSP = getImage(ngk.MaMH);
+                }
+                else
+                {
+                    if (ModelState.IsValid)
                     {
-                        ViewBag.Thongbao = "Hình ảnh đã tồn tại";
-                        return View();
+                        var fileName = Path.GetFileName(fileUpload.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Content/Hinhsp"), fileName);
+                        if (System.IO.File.Exists(path))
+                        {
+                            ngk.HinhSP = fileName;
+                            ViewBag.Thongbao = "Hình ảnh đã tồn tại";
+                            return View(ngk);
+                        }
+                        else
+                        {
+                            fileUpload.SaveAs(path);
+                            nngk.HinhSP = fileName;
+                        }
                     }
-                    else
-                    {
-                        fileupload.SaveAs(path);
-                        nngk.HinhSP = fileName;
-                    }   
-               }
-            UpdateModel(nngk);
-            data.SubmitChanges();
+                    data.SubmitChanges();
+                }
+            }
             return RedirectToAction("NGK");
         }
-        
-    }
+     }
+
 }
