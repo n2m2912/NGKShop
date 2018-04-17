@@ -1,4 +1,4 @@
-﻿
+
 
 @{
     ViewBag.Title = "Details";
@@ -25,14 +25,14 @@
         </span>
     </div>
     <div class="w3agile_description">
-        <h4>Chi tiết :</h4>
+        <h4>Mô tả :</h4>
         <p>
             @Model.MoTa
         </p>
     </div>
     <div class="snipcart-item block">
         <div class="snipcart-thumb agileinfo_single_right_snipcart">
-            <h4>@Model.GiaBan <span>$25.00</span></h4>
+            <h4>@string.Format("{0:0,0}", Model.GiaBan) Giảm:@Model.KhuyenMai%</h4>
         </div>
         <div class="snipcart-details agileinfo_single_right_details">
             <a class="button" href="@Url.Action("ThemGiohang","GioHang", new { @iMaMH = @Model.MaMH, @strURL = Request.Url.ToString() })" style="padding: 5px 5px">Them vao gio hang</a>
@@ -40,7 +40,7 @@
     </div>
 </div>
 <div class="col-md-12" style="padding-top:1em">
-    <div class="fb-like" data-href="http://localhost:50563/HomePage/Details/@Model.MaMH" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    <div class="fb-like" data-href="http://NGKShop.somee.com/HomePage/Details/@Model.MaMH" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
 </div>
 <div id="fb-root"></div>
 <script>
@@ -52,7 +52,7 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <div class="col-md-12" style="padding-top:1em">
-    <div class="fb-comments" data-href="http://localhost:50563/HomePage/Details/@Model.MaMH" data-width="500" data-numposts="5"></div>
+    <div class="fb-comments" data-href="http://NGKShop.somee.com/HomePage/Details/@Model.MaMH" data-width="500" data-numposts="5"></div>
 </div>
 <div id="fb-root"></div>
 <script>

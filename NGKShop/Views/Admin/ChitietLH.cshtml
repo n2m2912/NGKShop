@@ -1,0 +1,35 @@
+﻿@model NGKShop.Models.LOAINGK
+
+@{
+    ViewBag.Title = "ChitietLH";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ChitietLH</h2>
+
+<div>
+    <h4>LOAINGK</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenLH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenLH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaNCC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaNCC)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "ChitietLH", new { id = Model.MaLH }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -69,7 +69,6 @@ Create table [LOAINGK]
 	[MaLH] INT IDENTITY(1,1) NOT NULL,
 	[TenLH] Nvarchar(30) NOT NULL,
 	[MaNCC] INT NOT NULL,
-	[HinhLOGO] Nvarchar(30) ,
 Primary Key ([MaLH])
 ) 
 go
@@ -78,6 +77,8 @@ Create table [NCC]
 (
 	[MaNCC] INT IDENTITY(1,1) NOT NULL,
 	[TenNCC] Nvarchar(30) NOT NULL,
+	[DiaChiNCC] nvarchar(50),
+	[SDTNCC] varchar(11),
 Primary Key ([MaNCC])
 ) 
 go

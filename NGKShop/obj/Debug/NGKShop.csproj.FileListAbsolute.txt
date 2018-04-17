@@ -1,3 +1,4 @@
+C:\Users\n2m\Desktop\NGKShop\NGKShop\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\n2m\Desktop\NGKShop\NGKShop\bin\ApplicationInsights.config
 C:\Users\n2m\Desktop\NGKShop\NGKShop\bin\roslyn\csc.exe
 C:\Users\n2m\Desktop\NGKShop\NGKShop\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -37,7 +38,6 @@ C:\Users\n2m\Desktop\NGKShop\NGKShop\bin\Microsoft.Owin.Security.Google.dll
 C:\Users\n2m\Desktop\NGKShop\NGKShop\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
 C:\Users\n2m\Desktop\NGKShop\NGKShop\bin\Microsoft.Owin.Security.OAuth.dll
 C:\Users\n2m\Desktop\NGKShop\NGKShop\bin\Microsoft.Owin.Security.Twitter.dll
-C:\Users\n2m\Desktop\NGKShop\NGKShop\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\n2m\Desktop\NGKShop\NGKShop\bin\Newtonsoft.Json.dll
 C:\Users\n2m\Desktop\NGKShop\NGKShop\bin\Owin.dll
 C:\Users\n2m\Desktop\NGKShop\NGKShop\bin\PagedList.dll

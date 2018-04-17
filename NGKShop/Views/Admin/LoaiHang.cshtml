@@ -21,7 +21,7 @@ else
 <h2>LoaiHang</h2>
 
 <p>
-    <a href="@Url.Action("Create New", "Create")">Thêm mới</a>
+    @Html.ActionLink("Thêm LH", "ThemLH")
 </p>
 <table class="table">
     <tr>
@@ -30,9 +30,6 @@ else
         </th>
         <th>
             Mã nhà cung cấp
-        </th>
-        <th>
-            Logo
         </th>
         <th></th>
     </tr>
@@ -46,12 +43,9 @@ else
             @Html.DisplayFor(modelItem => item.MaNCC)
         </td>
         <td>
-            <img src="@Url.Content("~/Content/Hinhsp/" + item.HinhLOGO)" width="250px" height="250px" />
-        </td>
-        <td>
-            <a href="@Url.Action("Edit", "Edit", new { id=item.MaLH })">Sửa</a>
-            <a href="@Url.Action("Details", "Details", new { id = item.MaLH})">Chi Tiết</a>
-            <a href="@Url.Action("Delete", "Delete", new { id = item.MaLH})">Xóa</a>
+            @Html.ActionLink("Sửa", "SuaLH", new { id = item.MaLH }) |
+            @Html.ActionLink("Chi tiết", "ChitietLH", new { id = item.MaLH }) |
+            @Html.ActionLink("Xóa", "XoaLH", new { id = item.MaLH })
         </td>
     </tr>
 }

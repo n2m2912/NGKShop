@@ -21,7 +21,6 @@ else
 <h2>KhachHang</h2>
 
 <p>
-    <a href="@Url.Action("Create New", "Create")">Thêm mới</a>
 </p>
 <table class="table">
     <tr>
@@ -61,9 +60,8 @@ else
             @Html.DisplayFor(modelItem => item.TenDN)
         </td>
         <td>
-            <a href="@Url.Action("Edit", "Edit", new { id=item.MaKH })">Sửa</a>
-            <a href="@Url.Action("Details", "Details", new { id = item.MaKH})">Chi Tiết</a>
-            <a href="@Url.Action("Delete", "Delete", new { id = item.MaKH })">Xóa</a>
+            @Html.ActionLink("Chi tiết", "ChitietKH", new { id = item.MaKH }) |
+            @Html.ActionLink("Xóa", "XoaKH", new { id = item.MaKH })
         </td>
     </tr>
 }

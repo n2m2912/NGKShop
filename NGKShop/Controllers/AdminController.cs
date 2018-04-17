@@ -220,37 +220,87 @@ namespace NGKShop.Controllers
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult ThemLH(MATHANG ngk, HttpPostedFileBase fileupload)
+        public ActionResult ThemLH(LOAINGK lngk)
         {
-            ViewBag.MaLH = new SelectList(data.LOAINGKs.ToList().OrderBy(n => n.TenLH), "MaLH", "TenLH");
-            if (fileupload == null)
-            {
-                ViewBag.Thongbao = "Vui lòng chọn ảnh bìa";
-                return View();
-            }
-
-            else
-            {
+            ViewBag.MaNCC = new SelectList(data.NCCs.ToList().OrderBy(n => n.TenNCC), "MaNCC", "TenNCC");
+            
                 if (ModelState.IsValid)
                 {
-                    var fileName = Path.GetFileName(fileupload.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Content/Hinhsp"), fileName);
-                    if (System.IO.File.Exists(path))
-                    {
-                        ViewBag.Thongbao = "Hình ảnh đã tồn tại";
-                        return View();
-                    }
-                    else
-                    {
-                        fileupload.SaveAs(path);
-                    }
-                    ngk.HinhSP = fileName;
-                    data.MATHANGs.InsertOnSubmit(ngk);
+                    data.LOAINGKs.InsertOnSubmit(lngk);
                     data.SubmitChanges();
                 }
-                return RedirectToAction("NGK");
-            }
+                return RedirectToAction("LoaiHang");
+         }
 
+        public ActionResult ChitietLH(int id)
+        {
+            LOAINGK lngk = data.LOAINGKs.SingleOrDefault(n => n.MaLH == id);
+            ViewBag.MaLH = lngk.MaLH;
+            if (lngk == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(lngk);
+        }
+        [HttpGet]
+        public ActionResult XoaLH(int id)
+        {
+            LOAINGK lngk = data.LOAINGKs.SingleOrDefault(n => n.MaLH == id);
+            ViewBag.MaLH = lngk.MaLH;
+            if (lngk == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(lngk);
+        }
+        [HttpPost, ActionName("XoaLH")]
+        public ActionResult XacnhanxoaLH(int id)
+        {
+            LOAINGK lngk = data.LOAINGKs.SingleOrDefault(n => n.MaLH == id);
+            ViewBag.MaLH = lngk.MaLH;
+            if (lngk == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            data.LOAINGKs.DeleteOnSubmit(lngk);
+            data.SubmitChanges();
+            return RedirectToAction("LoaiHang");
+        }
+        public ActionResult SuaLH(int id)
+        {
+            LOAINGK lngk = data.LOAINGKs.SingleOrDefault(n => n.MaLH == id);
+            ViewBag.MaLH = lngk.MaLH;
+            if (lngk == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            ViewBag.MaNCC = new SelectList(data.NCCs.ToList().OrderBy(n => n.TenNCC), "MaNCC", "TenNCC", lngk.MaNCC);
+            return View(lngk);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult SuaLH(LOAINGK lngk)
+        {
+
+            LOAINGK nlngk = data.LOAINGKs.SingleOrDefault(n => n.MaLH == lngk.MaLH);
+            var MaNCC = lngk.MaNCC;
+            var TenLH = lngk.TenLH;
+
+
+            nlngk.TenLH = TenLH;
+            nlngk.MaNCC = MaNCC;
+            
+            if (ModelState.IsValid)
+            {
+                ViewBag.MaNCC = new SelectList(data.NCCs.ToList().OrderBy(n => n.TenNCC), "MaNCC", "TenNCC", lngk.MaNCC);
+                data.SubmitChanges();
+            }
+            return RedirectToAction("LoaiHang");
         }
         public ActionResult KhachHang(int? page)
         {
@@ -258,13 +308,137 @@ namespace NGKShop.Controllers
             int pageSize = 7;
             return View(data.KHACHHANGs.ToList().OrderBy(n => n.MaKH).ToPagedList(pageNumber, pageSize));
         }
+        public ActionResult ChitietKH(int id)
+        {
+            KHACHHANG kh = data.KHACHHANGs.SingleOrDefault(n => n.MaKH == id);
+            ViewBag.MaKH = kh.MaKH;
+            if (kh == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(kh);
+        }
+        [HttpGet]
+        public ActionResult XoaKH(int id)
+        {
+            KHACHHANG kh = data.KHACHHANGs.SingleOrDefault(n => n.MaKH == id);
+            ViewBag.MaKH = kh.MaKH;
+            if (kh == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(kh);
+        }
+        [HttpPost, ActionName("XoaKH")]
+        public ActionResult XacnhanxoaKH(int id)
+        {
+            KHACHHANG kh = data.KHACHHANGs.SingleOrDefault(n => n.MaKH == id);
+            ViewBag.MaKH = kh.MaKH;
+            if (kh == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            data.KHACHHANGs.DeleteOnSubmit(kh);
+            data.SubmitChanges();
+            return RedirectToAction("KhachHang");
+        }
         public ActionResult NCC(int? page)
         {
-            int pageNumber = (page ?? 1);
-            int pageSize = 7;
+             int pageNumber = (page ?? 1);
+             int pageSize = 7;
             return View(data.NCCs.ToList().OrderBy(n => n.MaNCC).ToPagedList(pageNumber, pageSize));
         }
-        
-     }
+        [HttpGet]
+        public ActionResult ThemNCC()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ThemNCC(NCC ncc)
+        {
+            if (ModelState.IsValid)
+            {
+                data.NCCs.InsertOnSubmit(ncc);
+                data.SubmitChanges();
+            }
+            return RedirectToAction("NCC");
+        }
+
+        public ActionResult ChitietNCC(int id)
+        {
+            NCC ncc = data.NCCs.SingleOrDefault(n => n.MaNCC== id);
+            ViewBag.MaNCC = ncc.MaNCC;
+            if (ncc == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(ncc);
+        }
+        [HttpGet]
+        public ActionResult XoaNCC(int id)
+        {
+            NCC ncc = data.NCCs.SingleOrDefault(n => n.MaNCC == id);
+            ViewBag.MaNCC = ncc.MaNCC;
+            if (ncc == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(ncc);
+        }
+        [HttpPost, ActionName("NCC")]
+        public ActionResult XacnhanxoaNCC(int id)
+        {
+            NCC ncc = data.NCCs.SingleOrDefault(n => n.MaNCC == id);
+            ViewBag.MaNCC = ncc.MaNCC;
+            if (ncc == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            data.NCCs.DeleteOnSubmit(ncc);
+            data.SubmitChanges();
+            return RedirectToAction("NCC");
+        }
+        public ActionResult SuaNCC(int id)
+        {
+            NCC ncc = data.NCCs.SingleOrDefault(n => n.MaNCC== id);
+            ViewBag.MaNCC = ncc.MaNCC;
+            if (ncc == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(ncc);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult SuaNCC(NCC ncc)
+        {
+
+            NCC nncc = data.NCCs.SingleOrDefault(n => n.MaNCC == ncc.MaNCC);
+            
+            var TenNCC = ncc.TenNCC;
+            var DiaChi = ncc.DiaChiNCC;
+            var SDT = ncc.SDTNCC;
+
+
+            nncc.TenNCC = TenNCC;
+            nncc.DiaChiNCC = DiaChi;
+            nncc.SDTNCC = SDT;
+
+            if (ModelState.IsValid)
+            {
+                data.SubmitChanges();
+            }
+            return RedirectToAction("NCC");
+        }
+    }
 
 }

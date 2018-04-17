@@ -17,7 +17,7 @@ p{
 	margin:0;
 }
 h1,h2,h3,h4,h5,h6,a{
-	font-family:'Ubuntu', sans-serif !important;
+	font-family: sans-serif !important;
 	margin:0;
 }
 ul,label{
@@ -2409,7 +2409,7 @@ ul.wmuSliderPagination {
 }
 .agileinfo_single_right_details {
     margin: 0 !important;
-    width: 29% !important;
+    width: 30% !important;
 }
 .w3agile_description h4{
 	font-size:1em;

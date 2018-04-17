@@ -25,12 +25,18 @@ else
 <h2>NCC</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Thêm NCC", "ThemNCC")
 </p>
 <table class="table">
     <tr>
         <th>
             Tên nhà cung cấp
+        </th>
+        <th>
+           Dia chi nhà cung cấp
+        </th>
+        <th>
+            SDT nhà cung cấp
         </th>
         <th></th>
     </tr>
@@ -41,14 +47,20 @@ else
             @Html.DisplayFor(modelItem => item.TenNCC)
         </td>
         <td>
-            <a href="@Url.Action("Edit", "Edit", new { id=item.MaNCC })">Sửa</a>
-            <a href="@Url.Action("Details", "Details", new { id = item.MaNCC})">Chi Tiết</a>
-            <a href="@Url.Action("Delete", "Delete", new { id = item.MaNCC})">Xóa</a>
+            @Html.DisplayFor(modelItem => item.DiaChiNCC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDTNCC)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "SuaNCC", new { id = item.MaNCC }) |
+            @Html.ActionLink("Chi tiết", "ChitietNCC", new { id = item.MaNCC}) |
+            @Html.ActionLink("Xóa", "XoaNCC", new { id = item.MaNCC })
         </td>
     </tr>
 }
 
 </table>
 <div class="pagination">
-    @Html.PagedListPager(Model, page => Url.Action("KhachHang", new { page = page }))
+    @Html.PagedListPager(Model, page => Url.Action("NCC", new { page = page }))
 </div>
