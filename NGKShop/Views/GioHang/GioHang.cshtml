@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_LayoutCheckOut.cshtml";
 }
 
-<h4>Your shopping cart contains: <span>@ViewBag.Tongsoluong Sản phẩm</span></h4>
+<h4>Giỏ hàng đang có: <span>@ViewBag.Tongsoluong Sản phẩm</span></h4>
 <table class="timetable_sub">
     <thead>
         <tr>
@@ -16,7 +16,7 @@
             <th>Tên sản phẩm</th>
             <th>Giá</th>
             <th>Thành tiền</th>
-            <th>Remove</th>
+            <th>Xóa</th>
             <th></th>
         </tr>
     </thead>
@@ -39,7 +39,7 @@
                         <a class="close1" href="@Url.Action("XoaGiohang", "GioHang", new { @iMaMH = item.iMaMH })"></a>
                     </div>
                 </td>
-                <td class="invert"><input type="submit" value="Update" /></td>
+                <td class="invert"><input type="submit" value="Cập nhật" /></td>
           }
             </tr> 
         </tbody>

@@ -17,10 +17,10 @@
                                     <div class="snipcart-thumb">
                                         <a href="@Url.Action("Details", "HomePage", new { id = mathang.MaMH }) "><img title=" " alt=" " src="~/Content/Hinhsp/@mathang.HinhSP" height="225px" width="225px" /></a>
                                         <p>@mathang.TenMH</p>
-                                        <h4>@string.Format("{0:0,0}", mathang.GiaBan)  Giảm: @mathang.KhuyenMai%</h4>
+                                        <h4>@string.Format("{0:0,0}", mathang.GiaBan)  (@mathang.KhuyenMai%)</h4>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details">
-                                        <a class="button" href="@Url.Action("ThemGiohang","GioHang", new { @iMaMH = @mathang.MaMH, @strURL = Request.Url.ToString() })" style="padding: 5px 5px">Them vao gio hang</a>
+                                        <a class="button" href="@Url.Action("ThemGiohang","GioHang", new { @iMaMH = @mathang.MaMH, @strURL = Request.Url.ToString() })" style="padding: 5px 5px">Thêm vào giỏ hàng</a>
 
                                     </div>
                                 </div>

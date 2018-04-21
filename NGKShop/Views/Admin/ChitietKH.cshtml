@@ -5,14 +5,13 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>ChitietKH</h2>
+<h2>Chi tiết khách hàng</h2>
 
 <div>
-    <h4>KHACHHANG</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.TenKH)
+            Tên khách hàng
         </dt>
 
         <dd>
@@ -20,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.SDT)
+            SDT
         </dt>
 
         <dd>
@@ -28,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DiaChi)
+            Địa chỉ
         </dt>
 
         <dd>
@@ -36,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.email)
+            Email
         </dt>
 
         <dd>
@@ -44,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TenDN)
+            Tên đăng nhập
         </dt>
 
         <dd>
@@ -52,7 +51,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.MatKhau)
+            Mật khẩu
         </dt>
 
         <dd>
@@ -63,5 +62,5 @@
 </div>
 <p>
     
-    @Html.ActionLink("Back to List", "KhachHang")
+    @Html.ActionLink("Trở về", "KhachHang")
 </p>

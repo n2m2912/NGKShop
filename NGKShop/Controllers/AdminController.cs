@@ -52,10 +52,18 @@ namespace NGKShop.Controllers
 
         public ActionResult Index()
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             return View();
         }
         public ActionResult NGK(int? page)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             int pageNumber = (page ?? 1);
             int pageSize = 7;
             return View(data.MATHANGs.ToList().OrderBy(n => n.MaMH).ToPagedList(pageNumber, pageSize));
@@ -63,6 +71,10 @@ namespace NGKShop.Controllers
         [HttpGet]
         public ActionResult ThemNGK()
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             ViewBag.MaLH = new SelectList(data.LOAINGKs.ToList().OrderBy(n => n.TenLH), "MaLH", "TenLH");
             return View();
         }
@@ -70,6 +82,10 @@ namespace NGKShop.Controllers
         [ValidateInput(false)]
         public ActionResult ThemNGK(MATHANG ngk, HttpPostedFileBase fileupload)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             ViewBag.MaLH = new SelectList(data.LOAINGKs.ToList().OrderBy(n => n.TenLH), "MaLH", "TenLH");
             if (fileupload == null)
             {
@@ -102,6 +118,10 @@ namespace NGKShop.Controllers
         }
         public ActionResult ChitietNGK(int id)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             MATHANG ngk = data.MATHANGs.SingleOrDefault(n => n.MaMH == id);
             ViewBag.MaMH = ngk.MaMH;
             if (ngk == null)
@@ -114,6 +134,10 @@ namespace NGKShop.Controllers
         [HttpGet]
         public ActionResult XoaNGK(int id)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             MATHANG ngk = data.MATHANGs.SingleOrDefault(n => n.MaMH == id);
             ViewBag.MaMH = ngk.MaMH;
             if (ngk == null)
@@ -126,6 +150,10 @@ namespace NGKShop.Controllers
         [HttpPost, ActionName("XoaNGK")]
         public ActionResult XacnhanxoaNGK(int id)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             MATHANG ngk = data.MATHANGs.SingleOrDefault(n => n.MaMH == id);
             ViewBag.MaMH = ngk.MaMH;
             if (ngk == null)
@@ -144,6 +172,10 @@ namespace NGKShop.Controllers
         }
         public ActionResult SuaNGK(int id)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             MATHANG ngk = data.MATHANGs.SingleOrDefault(n => n.MaMH == id);
             ViewBag.MaMH = ngk.MaMH;
             if (ngk == null)
@@ -159,7 +191,10 @@ namespace NGKShop.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SuaNGK(MATHANG ngk, HttpPostedFileBase fileUpload)
         {
-            
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             MATHANG nngk = data.MATHANGs.SingleOrDefault(n => n.MaMH == ngk.MaMH);
             var MaLH = ngk.MaLH;
             var TenMH = ngk.TenMH;
@@ -208,6 +243,10 @@ namespace NGKShop.Controllers
         }
         public ActionResult LoaiHang(int? page)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             int pageNumber = (page ?? 1);
             int pageSize = 7;
             return View(data.LOAINGKs.ToList().OrderBy(n => n.MaLH).ToPagedList(pageNumber, pageSize));
@@ -215,6 +254,10 @@ namespace NGKShop.Controllers
         [HttpGet]
         public ActionResult ThemLH()
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             ViewBag.MaNCC = new SelectList(data.NCCs.ToList().OrderBy(n => n.TenNCC), "MaNCC", "TenNCC");
             return View();
         }
@@ -222,6 +265,10 @@ namespace NGKShop.Controllers
         [ValidateInput(false)]
         public ActionResult ThemLH(LOAINGK lngk)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             ViewBag.MaNCC = new SelectList(data.NCCs.ToList().OrderBy(n => n.TenNCC), "MaNCC", "TenNCC");
             
                 if (ModelState.IsValid)
@@ -234,6 +281,10 @@ namespace NGKShop.Controllers
 
         public ActionResult ChitietLH(int id)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             LOAINGK lngk = data.LOAINGKs.SingleOrDefault(n => n.MaLH == id);
             ViewBag.MaLH = lngk.MaLH;
             if (lngk == null)
@@ -246,6 +297,10 @@ namespace NGKShop.Controllers
         [HttpGet]
         public ActionResult XoaLH(int id)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             LOAINGK lngk = data.LOAINGKs.SingleOrDefault(n => n.MaLH == id);
             ViewBag.MaLH = lngk.MaLH;
             if (lngk == null)
@@ -258,6 +313,10 @@ namespace NGKShop.Controllers
         [HttpPost, ActionName("XoaLH")]
         public ActionResult XacnhanxoaLH(int id)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             LOAINGK lngk = data.LOAINGKs.SingleOrDefault(n => n.MaLH == id);
             ViewBag.MaLH = lngk.MaLH;
             if (lngk == null)
@@ -271,8 +330,12 @@ namespace NGKShop.Controllers
         }
         public ActionResult SuaLH(int id)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             LOAINGK lngk = data.LOAINGKs.SingleOrDefault(n => n.MaLH == id);
-            ViewBag.MaLH = lngk.MaLH;
+            ViewBag.MaNCC = lngk.MaNCC;
             if (lngk == null)
             {
                 Response.StatusCode = 404;
@@ -286,7 +349,10 @@ namespace NGKShop.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SuaLH(LOAINGK lngk)
         {
-
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             LOAINGK nlngk = data.LOAINGKs.SingleOrDefault(n => n.MaLH == lngk.MaLH);
             var MaNCC = lngk.MaNCC;
             var TenLH = lngk.TenLH;
@@ -304,12 +370,20 @@ namespace NGKShop.Controllers
         }
         public ActionResult KhachHang(int? page)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             int pageNumber = (page ?? 1);
             int pageSize = 7;
             return View(data.KHACHHANGs.ToList().OrderBy(n => n.MaKH).ToPagedList(pageNumber, pageSize));
         }
         public ActionResult ChitietKH(int id)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             KHACHHANG kh = data.KHACHHANGs.SingleOrDefault(n => n.MaKH == id);
             ViewBag.MaKH = kh.MaKH;
             if (kh == null)
@@ -322,6 +396,10 @@ namespace NGKShop.Controllers
         [HttpGet]
         public ActionResult XoaKH(int id)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             KHACHHANG kh = data.KHACHHANGs.SingleOrDefault(n => n.MaKH == id);
             ViewBag.MaKH = kh.MaKH;
             if (kh == null)
@@ -334,6 +412,10 @@ namespace NGKShop.Controllers
         [HttpPost, ActionName("XoaKH")]
         public ActionResult XacnhanxoaKH(int id)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             KHACHHANG kh = data.KHACHHANGs.SingleOrDefault(n => n.MaKH == id);
             ViewBag.MaKH = kh.MaKH;
             if (kh == null)
@@ -347,19 +429,31 @@ namespace NGKShop.Controllers
         }
         public ActionResult NCC(int? page)
         {
-             int pageNumber = (page ?? 1);
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            int pageNumber = (page ?? 1);
              int pageSize = 7;
             return View(data.NCCs.ToList().OrderBy(n => n.MaNCC).ToPagedList(pageNumber, pageSize));
         }
         [HttpGet]
         public ActionResult ThemNCC()
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             return View();
         }
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult ThemNCC(NCC ncc)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             if (ModelState.IsValid)
             {
                 data.NCCs.InsertOnSubmit(ncc);
@@ -370,6 +464,10 @@ namespace NGKShop.Controllers
 
         public ActionResult ChitietNCC(int id)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             NCC ncc = data.NCCs.SingleOrDefault(n => n.MaNCC== id);
             ViewBag.MaNCC = ncc.MaNCC;
             if (ncc == null)
@@ -382,8 +480,11 @@ namespace NGKShop.Controllers
         [HttpGet]
         public ActionResult XoaNCC(int id)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             NCC ncc = data.NCCs.SingleOrDefault(n => n.MaNCC == id);
-            ViewBag.MaNCC = ncc.MaNCC;
             if (ncc == null)
             {
                 Response.StatusCode = 404;
@@ -391,11 +492,14 @@ namespace NGKShop.Controllers
             }
             return View(ncc);
         }
-        [HttpPost, ActionName("NCC")]
+        [HttpPost, ActionName("XoaNCC")]
         public ActionResult XacnhanxoaNCC(int id)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             NCC ncc = data.NCCs.SingleOrDefault(n => n.MaNCC == id);
-            ViewBag.MaNCC = ncc.MaNCC;
             if (ncc == null)
             {
                 Response.StatusCode = 404;
@@ -407,8 +511,11 @@ namespace NGKShop.Controllers
         }
         public ActionResult SuaNCC(int id)
         {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             NCC ncc = data.NCCs.SingleOrDefault(n => n.MaNCC== id);
-            ViewBag.MaNCC = ncc.MaNCC;
             if (ncc == null)
             {
                 Response.StatusCode = 404;
@@ -421,7 +528,10 @@ namespace NGKShop.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SuaNCC(NCC ncc)
         {
-
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
             NCC nncc = data.NCCs.SingleOrDefault(n => n.MaNCC == ncc.MaNCC);
             
             var TenNCC = ncc.TenNCC;

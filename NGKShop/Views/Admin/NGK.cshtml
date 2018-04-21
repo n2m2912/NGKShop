@@ -18,7 +18,7 @@ else
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>NGK</h2>
+<h2>Nước giải khát</h2>
 
 <p>
     @Html.ActionLink("Thêm NGK","ThemNGK")
@@ -63,11 +63,11 @@ else
             @Html.DisplayFor(modelItem => item.DonViTinh)
         </td>
         <td>
-            @Html.Raw(item.MoTa.ToString())
+            @Truncate(item.MoTa,100)
            
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.GiaBan)
+            @string.Format("{0:0,0}", item.GiaBan) VND
         </td>
         <td>
             <img src="@Url.Content("~/Content/Hinhsp/" + item.HinhSP)" width="250px" height="250px"/>
